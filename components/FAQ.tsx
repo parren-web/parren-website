@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: "How is Parren different from hiring a social media manager?",
-    a: "A great human manager works business hours; Parren is being built to work around the clock — editing, captioning, publishing, and analyzing while you sleep. It's not a replacement for human creativity and judgment, but it removes the repetitive production grind that eats most of a manager's week.",
+    a: "A great human manager works business hours; Parren works around the clock — editing, captioning, publishing, and analyzing while you sleep. It's not a replacement for human creativity and judgment, but it removes the repetitive production grind that eats most of a manager's week.",
   },
   {
     q: "Do I have to record my own content?",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "How does native publishing work?",
-    a: "Parren is being developed to publish through dedicated iPhones using the actual social media apps — device-based automation instead of third-party scheduling workarounds. This is a planned part of our publishing architecture. We don't claim it guarantees better reach or algorithmic preference.",
+    a: "Parren publishes through dedicated iPhones using the actual social media apps — device-based automation instead of third-party scheduling workarounds. This is a planned part of our publishing architecture. We don't claim it guarantees better reach or algorithmic preference.",
   },
   {
     q: "Can I approve content before it posts?",

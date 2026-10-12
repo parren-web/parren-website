@@ -29,7 +29,7 @@ export default function Comparison() {
           <Reveal delay={80}>
             <h2 className="font-display mt-4 text-3xl tracking-tight text-white sm:text-4xl" style={{ fontWeight: 700 }}>
               A scheduling tool manages your calendar.{" "}
-              <span className="text-gradient">Parren is being built to manage the workflow.</span>
+              <span className="text-gradient">Parren manages the workflow.</span>
             </h2>
           </Reveal>
           <Reveal delay={160}>

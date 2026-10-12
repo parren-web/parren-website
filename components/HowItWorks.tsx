@@ -21,7 +21,7 @@ const STEPS = [
     n: "03",
     title: "Publish",
     headline: "Your content goes live, natively.",
-    body: "Parren is being built to publish through dedicated iPhones using the actual social media apps — no clunky third-party scheduling workarounds. Uploading, captioning, account selection, and posting happen for you.",
+    body: "Parren publishes through dedicated iPhones using the actual social media apps — no clunky third-party scheduling workarounds. Uploading, captioning, account selection, and posting happen for you.",
     badge: "Roadmap",
   },
   {
@@ -62,7 +62,7 @@ export default function HowItWorks() {
           <Reveal delay={160}>
             <p className="mx-auto mt-5 max-w-2xl text-[17px] leading-relaxed text-slate-300/85">
               One coordinated workflow, from raw footage to published post to smarter strategy.
-              Here&apos;s the loop Parren is being built around.
+              Here&apos;s the loop Parren runs on.
             </p>
           </Reveal>
         </div>

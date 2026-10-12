@@ -38,7 +38,7 @@ export default function BrandBrain() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-5 text-[17px] leading-relaxed text-slate-300/85">
-                Parren is being built to learn and retain your brand preferences — so you stop
+                Parren learns and retains your brand preferences — so you stop
                 re-explaining what you want. Every revision and every piece of feedback makes
                 the next draft closer to what you&apos;d have made yourself.
               </p>

@@ -48,7 +48,7 @@ export default function NativePublishing() {
           </Reveal>
           <Reveal delay={160}>
             <p className="mx-auto mt-5 max-w-2xl text-[17px] leading-relaxed text-slate-300/85">
-              Parren is being developed to publish through dedicated iPhones using the actual
+              Parren publishes through dedicated iPhones using the actual
               social media applications — bringing device-based automation into content
               distribution. <span className="text-slate-400/75">This describes our planned
               publishing architecture, not current availability.</span>

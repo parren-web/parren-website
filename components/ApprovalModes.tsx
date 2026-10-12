@@ -37,8 +37,7 @@ export default function ApprovalModes() {
           </Reveal>
           <Reveal delay={160}>
             <p className="mx-auto mt-5 max-w-2xl text-[17px] leading-relaxed text-slate-300/85">
-              Handing posting to software can feel nerve-wracking. So Parren is being designed
-              around three approval modes — you choose how much autonomy it gets, and you can
+              Handing posting to software can feel nerve-wracking. So Parren hands you three approval modes — you choose how much autonomy it gets, and you can
               change your mind anytime.
             </p>
           </Reveal>

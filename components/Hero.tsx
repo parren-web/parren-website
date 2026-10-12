@@ -55,9 +55,9 @@ export default function Hero() {
 
             <Reveal delay={160}>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-300/90">
-                We&apos;re building an AI-powered social media manager that edits your videos,
-                publishes them natively, and helps you plan new ones based on what&apos;s
-                working — so your brand shows up every day without taking over your schedule.
+                Expert video editing, native publishing, and content planning driven by
+                what&apos;s proven to work — running 24/7, so your brand shows up every day
+                without taking over your schedule.
               </p>
             </Reveal>
 
