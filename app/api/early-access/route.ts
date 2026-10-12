@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { signupSchema, CONSENT_VERSION } from "@/lib/validation";
 import { checkRateLimit } from "@/lib/rate-limit";
-import { appendSignup, emailExists, SheetsNotConfiguredError } from "@/lib/sheets";
+import { submitSignup, SheetsNotConfiguredError } from "@/lib/sheets";
 
 /** 5 signup attempts per IP per 10 minutes */
 const RATE_LIMIT = 5;
@@ -39,16 +39,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  // 4. Duplicate prevention (case-insensitive email match)
+  // 4. Submit (the endpoint dedupes on email, case-insensitive)
   try {
-    if (await emailExists(data.email)) {
-      return NextResponse.json(
-        { ok: false, error: "This email is already on the early access list — you're all set." },
-        { status: 409 }
-      );
-    }
-
-    await appendSignup([
+    const result = await submitSignup([
       new Date().toISOString(),
       data.firstName,
       data.email,
@@ -63,6 +56,13 @@ export async function POST(req: Request) {
       data.referrer ?? "",
       data.landingPage ?? "",
     ]);
+
+    if (!result.ok && result.duplicate) {
+      return NextResponse.json(
+        { ok: false, error: "This email is already on the early access list — you're all set." },
+        { status: 409 }
+      );
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {

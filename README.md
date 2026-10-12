@@ -56,11 +56,12 @@ lib/
 
 ## Connecting Google Sheets (one-time, ~10 min)
 
-1. In [Google Cloud Console](https://console.cloud.google.com), create/select a project and
-   enable the **Google Sheets API**.
-2. **IAM → Service Accounts → Create**: name it e.g. `parren-leads`. Create a JSON key
-   and download it.
-3. Create the spreadsheet (e.g. "Parren Early Access Leads") with two tabs named exactly:
+No service-account keys: the site talks to a Google Apps Script web app that
+runs as your Google account and appends rows to the spreadsheet. This avoids
+key management entirely (and sidesteps Workspace org policies that block
+service-account key creation).
+
+1. Create the spreadsheet (e.g. "Parren Early Access Leads") with two tabs named exactly:
    - `Signups` — header row: `Timestamp | First Name | Email | Company | Consent Given |
      Consent Version | UTM Source | UTM Medium | UTM Campaign | UTM Term | UTM Content |
      Referrer | Landing Page`
@@ -68,11 +69,20 @@ lib/
      Website / Handle | Platforms | Current Posting Frequency | Desired Posting Frequency |
      Biggest Bottleneck | Monthly Budget | Beta Interest`
      (a row here, matched by email, means the user completed the questionnaire)
-4. **Share** the spreadsheet with the service account email as **Editor**.
+2. Go to [script.google.com](https://script.google.com) → **New project**, paste in
+   `apps-script/Code.gs` from this repo.
+3. **Project Settings → Script Properties**, add:
+   - `SHEET_ID` — the long ID in the spreadsheet's URL
+   - `SHARED_SECRET` — a long random string, e.g. `openssl rand -hex 32`
+4. **Deploy → New deployment → Web app**:
+   - Execute as: **Me**
+   - Who has access: **Anyone** (required — the Next.js server can't do a Google
+     login; the shared secret is what gates access)
+   - Copy the Web app URL (`…/exec`).
+   - After ANY future code change: Deploy → Manage deployments → edit → **New version**.
 5. Set env vars (locally in `.env.local`; in production via the hosting dashboard):
-   - `GOOGLE_SHEETS_CLIENT_EMAIL` — from the JSON key
-   - `GOOGLE_SHEETS_PRIVATE_KEY` — from the JSON key (keep the `\n` escapes)
-   - `GOOGLE_SHEETS_SPREADSHEET_ID` — the long ID in the sheet's URL
+   - `PARREN_SHEETS_ENDPOINT` — the Web app URL
+   - `PARREN_SHEETS_SECRET` — the same `SHARED_SECRET` value
 
 ## How signups work (security model)
 

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { qualifySchema } from "@/lib/validation";
 import { checkRateLimit } from "@/lib/rate-limit";
-import { appendQualification, SheetsNotConfiguredError } from "@/lib/sheets";
+import { submitQualification, SheetsNotConfiguredError } from "@/lib/sheets";
 
 /** 10 questionnaire submissions per IP per 10 minutes */
 const RATE_LIMIT = 10;
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
   const data = parsed.data;
 
   try {
-    await appendQualification([
+    await submitQualification([
       new Date().toISOString(),
       data.email,
       data.firstName,
