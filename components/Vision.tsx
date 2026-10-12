@@ -44,7 +44,7 @@ export default function Vision() {
                   className="font-display mt-4 text-lg tracking-tight text-slate-200"
                   style={{ fontWeight: 700 }}
                 >
-                  Learn your voice. <span className="text-gradient">Grow your brand.</span>
+                  Simplify <span className="text-gradient">Social Media.</span>
                 </p>
                 <p className="mt-5 text-[17px] leading-relaxed text-slate-300/85">
                   This is where Parren is headed: a fully automated AI social media manager that

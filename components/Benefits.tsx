@@ -12,7 +12,7 @@ const benefits = [
   {
     icon: "M12 8v4l2.5 2.5M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z",
     title: "Your time back",
-    body: "Shoot for an hour a week. Parren absorbs the other 95% of the content grind — editing, captions, posting, tracking.",
+    body: "Film for an hour a week. Parren absorbs the other 95% of the content grind — editing, captions, posting, tracking.",
   },
   {
     icon: "M4 17l6-6-6-6M12 19h8",
@@ -31,7 +31,7 @@ const benefits = [
   },
   {
     icon: "M23 7l-7 5 7 5V7zM1 5h15v14H1z",
-    title: "One job: shoot",
+    title: "One job: film",
     body: "If you can film it on your phone, Parren can run with it. That's the entire input on your side.",
   },
   {

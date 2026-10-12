@@ -4,7 +4,7 @@ const steps = [
   {
     n: "01",
     title: "Capture",
-    headline: "You shoot.",
+    headline: "You film.",
     body: "Film on your phone and drop in the raw clips. No scripts to write, no editing timeline, no posting calendar to babysit.",
   },
   {

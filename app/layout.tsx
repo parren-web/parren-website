@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Parren.ai — Your AI Social Media Team",
     description:
-      "You shoot. Parren does the rest. Join early access to the AI social media team for founders, creators, and personal brands.",
+      "You film. Parren does the rest. Join early access to the AI social media team for founders, creators, and personal brands.",
     url: "https://parren.ai",
     siteName: "Parren.ai",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Parren.ai — Your AI Social Media Team",
-    description: "You shoot. Parren does the rest. Join early access.",
+    description: "You film. Parren does the rest. Join early access.",
   },
 };
 

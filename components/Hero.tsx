@@ -49,7 +49,7 @@ export default function Hero() {
               >
                 Your AI social media team.
                 <br />
-                <span className="text-gradient">You shoot. Parren does the rest.</span>
+                <span className="text-gradient">You film. Parren does the rest.</span>
               </h1>
             </Reveal>
 
