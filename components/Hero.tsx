@@ -56,8 +56,8 @@ export default function Hero() {
             <Reveal delay={160}>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-300/90">
                 Expert video editing, native publishing, and content planning driven by
-                what&apos;s proven to work — running 24/7, so your brand shows up every day
-                without taking over your schedule.
+                what&apos;s proven to work — running 24/7, so your brand shows up multiple
+                times a day, every day. All you do is film.
               </p>
             </Reveal>
 
