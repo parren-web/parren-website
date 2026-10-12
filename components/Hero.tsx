@@ -47,7 +47,7 @@ export default function Hero() {
                 className="font-display mt-6 text-4xl leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]"
                 style={{ fontWeight: 700 }}
               >
-                Your AI social media team.
+                Your personal social media manager.
                 <br />
                 <span className="text-gradient">You film. Parren does the rest.</span>
               </h1>
