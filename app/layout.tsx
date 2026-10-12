@@ -16,21 +16,21 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Parren.ai — Your Personal Social Media Manager",
+  title: "Parren.ai — Your 24/7 Social Media Manager",
   description:
     "Parren turns your raw footage into edited videos, scroll-stopping captions, and a posting rhythm that never sleeps. Join early access.",
   metadataBase: new URL("https://parren.ai"),
   openGraph: {
-    title: "Parren.ai — Your Personal Social Media Manager",
+    title: "Parren.ai — Your 24/7 Social Media Manager",
     description:
-      "You film. Parren does the rest. Join early access to your personal social media manager for founders, creators, and personal brands.",
+      "You film. Parren does the rest. Join early access to your 24/7 social media manager for founders, creators, and personal brands.",
     url: "https://parren.ai",
     siteName: "Parren.ai",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Parren.ai — Your Personal Social Media Manager",
+    title: "Parren.ai — Your 24/7 Social Media Manager",
     description: "You film. Parren does the rest. Join early access.",
   },
 };

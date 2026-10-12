@@ -44,7 +44,7 @@ export default function EarlyAccess() {
             </h2>
             <p className="mt-4 max-w-lg text-[17px] leading-relaxed text-slate-300/85">
               We&apos;re opening Parren to a small group first. Join the list, tell us about your
-              workflow, and help shape the personal social media manager you&apos;ve always wanted.
+              workflow, and help shape the 24/7 social media manager you&apos;ve always wanted.
             </p>
             <ul className="mt-8 space-y-4">
               {perks.map((p) => (
