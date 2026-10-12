@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: "Do I have to record my own content?",
-    a: "Yes — you film, Parren does the rest. Your face, your voice, and your stories are what make content worth watching; no AI can fake that convincingly. Our planned AI interviewer will guide your recording sessions with tailored questions so you always know what to say.",
+    a: "Yes — you film, Parren does the rest for you. Your face, your voice, and your stories are what make content worth watching; no AI can fake that convincingly. Our planned AI interviewer will guide your recording sessions with tailored questions so you always know what to say.",
   },
   {
     q: "Does Parren edit videos?",

@@ -49,7 +49,7 @@ export default function Hero() {
               >
                 Your 24/7 social media manager.
                 <br />
-                <span className="text-gradient">You film. Parren does the rest.</span>
+                <span className="text-gradient">You film. Parren does the rest for you.</span>
               </h1>
             </Reveal>
 

@@ -119,7 +119,7 @@ Bump `CONSENT_VERSION` in `lib/validation.ts` whenever the consent checkbox copy
   favicon via `app/icon.png`). Mascot: `public/mascot-assistant.png` (Assistant
   variant, used in the early-access form).
 - Brand voice: founder-friendly, premium, ambitious, plain-spoken. Key lines:
-  "Your 24/7 social media manager. You film. Parren does the rest." and
+  "Your 24/7 social media manager. You film. Parren does the rest for you." and
   "Simplify Social Media."
 - Animations: CSS keyframes + `Reveal` (IntersectionObserver). Keep them subtle.
 

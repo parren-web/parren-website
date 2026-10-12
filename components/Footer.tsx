@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
-              Your 24/7 social media manager. You film. Parren does the rest.
+              Your 24/7 social media manager. You film. Parren does the rest for you.
             </p>
           </div>
           <div>
