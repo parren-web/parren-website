@@ -66,10 +66,16 @@ export const SIGNUP_HEADERS = [
 export const QUALIFICATION_HEADERS = [
   "Timestamp",
   "Email",
+  "First Name",
+  "Company",
+  "Industry",
+  "Website / Handle",
   "Platforms",
-  "Posting Frequency",
-  "Wants To Hand Off",
-  "Company Size",
+  "Current Posting Frequency",
+  "Desired Posting Frequency",
+  "Biggest Bottleneck",
+  "Monthly Budget",
+  "Beta Interest",
 ];
 
 /** Case-insensitive duplicate check against the Email column of "Signups". */
@@ -100,7 +106,7 @@ export async function appendQualification(row: string[]): Promise<void> {
   const { sheets, spreadsheetId } = getContext();
   await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: "Qualification!A:F",
+    range: "Qualification!A:L",
     valueInputOption: "RAW",
     requestBody: { values: [row] },
   });

@@ -39,11 +39,15 @@ app/
     early-access/route.ts  # POST signup: validate → honeypot → dedupe → Sheets
     qualify/route.ts       # POST questionnaire answers → Sheets
 components/
-  SignupForm.tsx           # reusable form (hero + CTA section): fields, consent,
+  SignupForm.tsx           # email-first form (hero + CTA + final): email, consent,
                            # honeypot, UTM/referrer capture
-  Questionnaire.tsx        # optional post-signup qualification step
-  DashboardMock.tsx        # stylized CONCEPT preview (not a real product shot)
-  Navbar/Hero/HowItWorks/Benefits/Vision/EarlyAccess/FAQ/Footer/Logo/Reveal
+  Questionnaire.tsx        # optional post-signup qualification step (10 fields)
+  CommandCenter.tsx        # stylized CONCEPT preview (not a real product shot);
+                           # `compact` for hero, full bento in ProductSection
+  StickyCTA.tsx            # mobile-only sticky bottom CTA bar
+  Navbar/Hero/VolumeSection/DreamOutcome/HowItWorks/NativePublishing/
+  BrandBrain/ProductSection/ApprovalModes/Comparison/Roadmap/
+  EarlyAccess/FAQ/FinalCTA/Footer/Logo/Reveal
 lib/
   validation.ts            # zod schemas + CONSENT_VERSION
   rate-limit.ts            # in-memory sliding-window limiter
@@ -60,8 +64,10 @@ lib/
    - `Signups` — header row: `Timestamp | First Name | Email | Company | Consent Given |
      Consent Version | UTM Source | UTM Medium | UTM Campaign | UTM Term | UTM Content |
      Referrer | Landing Page`
-   - `Qualification` — header row: `Timestamp | Email | Platforms | Posting Frequency |
-     Wants To Hand Off | Company Size`
+   - `Qualification` — header row: `Timestamp | Email | First Name | Company | Industry |
+     Website / Handle | Platforms | Current Posting Frequency | Desired Posting Frequency |
+     Biggest Bottleneck | Monthly Budget | Beta Interest`
+     (a row here, matched by email, means the user completed the questionnaire)
 4. **Share** the spreadsheet with the service account email as **Editor**.
 5. Set env vars (locally in `.env.local`; in production via the hosting dashboard):
    - `GOOGLE_SHEETS_CLIENT_EMAIL` — from the JSON key
@@ -70,12 +76,13 @@ lib/
 
 ## How signups work (security model)
 
-1. **Client**: `SignupForm` captures UTM params + referrer, includes an off-screen
+1. **Client**: `SignupForm` is email-first (only email + consent up front — name/company
+   move to the questionnaire). Captures UTM params + referrer, includes an off-screen
    honeypot field (`website`). Marketing consent checkbox is unchecked by default
    (CASL express consent).
 2. **API** (`/api/early-access`):
    - Sliding-window rate limit: 5 attempts / IP / 10 min
-   - Zod validation (name, email, company, `consent: true` required)
+   - Zod validation (valid email, `consent: true` required)
    - Honeypot non-empty → fake `200 {ok:true}` (don't tip off bots)
    - Duplicate check: case-insensitive scan of the Email column → `409` with a
      friendly "already on the list" message

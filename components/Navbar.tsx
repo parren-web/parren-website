@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 const links = [
   { label: "How it works", href: "#how-it-works" },
-  { label: "Vision", href: "#vision" },
+  { label: "Roadmap", href: "#roadmap" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -43,11 +43,11 @@ export default function Navbar() {
           ))}
         </div>
         <a
-          href="#early-access"
+          href="#join"
           className="btn-primary rounded-xl px-5 py-2.5 font-display text-sm font-semibold text-white"
           style={{ fontWeight: 600 }}
         >
-          Join Early Access
+          Join Early Access — Free
         </a>
       </nav>
     </header>

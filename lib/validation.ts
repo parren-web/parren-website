@@ -26,9 +26,11 @@ const utmSchema = z
   .optional();
 
 export const signupSchema = z.object({
-  firstName: z.string().trim().min(1, "Please enter your first name.").max(60),
+  // Email-first funnel: name/company are collected in the optional
+  // post-signup questionnaire, not here. Kept optional for compatibility.
+  firstName: z.string().trim().max(60).optional().default(""),
   email: emailField,
-  company: z.string().trim().min(1, "Please enter your company or brand name.").max(120),
+  company: z.string().trim().max(120).optional().default(""),
   // CASL express consent: must be an explicit opt-in (true).
   consent: z.literal(true, {
     error: "Marketing consent is required to join early access.",
@@ -45,10 +47,16 @@ export type SignupInput = z.infer<typeof signupSchema>;
 
 export const qualifySchema = z.object({
   email: emailField,
+  firstName: z.string().trim().max(60).optional().default(""),
+  company: z.string().trim().max(120).optional().default(""),
+  industry: z.string().max(80).optional().default(""),
+  handle: z.string().trim().max(120).optional().default(""),
   platforms: z.array(z.string().max(40)).max(8).optional().default([]),
-  postingFrequency: z.string().max(60).optional().default(""),
-  handoff: z.string().trim().max(500).optional().default(""),
-  companySize: z.string().max(40).optional().default(""),
+  currentFrequency: z.string().max(60).optional().default(""),
+  desiredFrequency: z.string().max(60).optional().default(""),
+  bottleneck: z.string().trim().max(500).optional().default(""),
+  budget: z.string().max(60).optional().default(""),
+  betaInterest: z.boolean().optional().default(false),
 });
 
 export type QualifyInput = z.infer<typeof qualifySchema>;

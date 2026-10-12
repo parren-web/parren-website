@@ -35,10 +35,16 @@ export async function POST(req: Request) {
     await appendQualification([
       new Date().toISOString(),
       data.email,
+      data.firstName,
+      data.company,
+      data.industry,
+      data.handle,
       data.platforms.join(", "),
-      data.postingFrequency,
-      data.handoff,
-      data.companySize,
+      data.currentFrequency,
+      data.desiredFrequency,
+      data.bottleneck,
+      data.budget,
+      data.betaInterest ? "Yes" : "",
     ]);
     return NextResponse.json({ ok: true });
   } catch (err) {

@@ -9,24 +9,48 @@ const faqs = [
     a: "Not yet — Parren is in active development and testing. Early access members are first in line when the MVP opens, and their input shapes what we build first.",
   },
   {
-    q: "What will the MVP do first?",
-    a: "The first version focuses on the core loop: turning your raw footage into edited, captioned, ready-to-post content. Native publishing, analytics, and the learning engine roll out from there — early members help set the order.",
+    q: "How is Parren different from hiring a social media manager?",
+    a: "A great human manager works business hours; Parren is being built to work around the clock — editing, captioning, publishing, and analyzing while you sleep. It's not a replacement for human creativity and judgment, but it removes the repetitive production grind that eats most of a manager's week.",
   },
   {
-    q: "Which platforms will Parren publish to?",
-    a: "Instagram, TikTok, YouTube, and LinkedIn are on the roadmap. Publishing is handled natively — the way the platforms reward — instead of through the kind of third-party blasts that get throttled.",
+    q: "Do I have to record my own content?",
+    a: "Yes — you film, Parren does the rest. Your face, your voice, and your stories are what make content worth watching; no AI can fake that convincingly. Our planned AI interviewer will guide your recording sessions with tailored questions so you always know what to say.",
+  },
+  {
+    q: "Does Parren edit videos?",
+    a: "That's the plan. AI-assisted editing is designed to find the strongest moments in your footage — hooks, stories, key points — and cut them into platform-ready clips with captions in your voice. The MVP focuses on this core loop first.",
+  },
+  {
+    q: "Which platforms will Parren support?",
+    a: "Instagram, TikTok, YouTube Shorts, Facebook, and LinkedIn are on the roadmap. Availability per platform will depend on the eventual service plan and account eligibility.",
+  },
+  {
+    q: "How much content can it publish?",
+    a: "Our target high-volume workflow is designed for up to 450+ publications a month across five platforms (3 posts per day, per platform). That's an illustrative planning target, not current capacity — the exact mix and frequency will depend on your plan, content supply, and eligibility.",
+  },
+  {
+    q: "How does native publishing work?",
+    a: "Parren is being developed to publish through dedicated iPhones using the actual social media apps — device-based automation instead of third-party scheduling workarounds. This is a planned part of our publishing architecture. We don't claim it guarantees better reach or algorithmic preference.",
+  },
+  {
+    q: "Can I approve content before it posts?",
+    a: "Yes — approvals are core to the product. We're designing three modes: Review Required (nothing publishes without your sign-off), Smart Approval (routine content flows through, exceptions come to you), and Autopilot (eligible content publishes within rules you define). You choose, and you can change modes anytime.",
+  },
+  {
+    q: "Will it learn my brand?",
+    a: "That's the Brand Brain vision: Parren learns your tone, hooks, editing style, and preferences from your content and your revisions, so drafts keep getting closer to what you'd make yourself. It's planned functionality that improves with your feedback — not fully autonomous, and not proven yet.",
   },
   {
     q: "How much will it cost?",
-    a: "Pricing isn't finalized. Joining early access is free, and founding members will hear about pricing first — with terms that reward the people who believed early.",
+    a: "Pricing isn't finalized. Joining early access is free, and founding members will hear about pricing before anyone else. We won't promise specific discounts or lifetime deals until pricing is real.",
   },
   {
-    q: "Do I stay in control of what gets posted?",
-    a: "Yes. Approvals are core to the product vision: nothing publishes without your sign-off until you decide otherwise. Automation should remove work, not control.",
+    q: "What does early access include?",
+    a: "Product development updates and demos, consideration for the initial beta testing group, and real input into what we build first. No commitment, no payment — just first access to updates and opportunities to participate. Beta spots aren't guaranteed.",
   },
   {
     q: "What happens to my data?",
-    a: "We collect the minimum needed to run early access — your name, email, company, and any questionnaire answers. Full details are in our privacy policy. We never sell your data.",
+    a: "We collect the minimum needed to run early access — your email, plus anything you choose to share in the optional questionnaire. Full details are in our privacy policy. We never sell your data.",
   },
 ];
 
@@ -91,7 +115,7 @@ export default function FAQ() {
 
         <div className="mt-10 space-y-4">
           {faqs.map((f, i) => (
-            <Reveal key={f.q} delay={i * 60}>
+            <Reveal key={f.q} delay={Math.min(i * 40, 160)}>
               <Item
                 q={f.q}
                 a={f.a}

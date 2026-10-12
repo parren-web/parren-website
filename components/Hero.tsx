@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SignupForm from "./SignupForm";
 import Questionnaire from "./Questionnaire";
-import DashboardMock from "./DashboardMock";
+import CommandCenter from "./CommandCenter";
 import Reveal from "./Reveal";
 
 function CheckIcon() {
@@ -19,7 +19,7 @@ export default function Hero() {
   const [signedUpEmail, setSignedUpEmail] = useState<string | null>(null);
 
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
+    <section id="top" className="relative overflow-hidden pt-28 pb-14 sm:pt-36 sm:pb-20">
       {/* ambient background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="bg-grid absolute inset-0" />
@@ -29,7 +29,7 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10">
           {/* Copy + form */}
           <div>
             <Reveal>
@@ -44,7 +44,7 @@ export default function Hero() {
 
             <Reveal delay={80}>
               <h1
-                className="font-display mt-6 text-4xl leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]"
+                className="font-display mt-5 text-4xl leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]"
                 style={{ fontWeight: 700 }}
               >
                 Your 24/7 social media manager.
@@ -54,22 +54,37 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300/90">
-                Run your business. Parren turns your raw footage into edited videos,
-                scroll-stopping captions, and a posting rhythm that never sleeps — and keeps
-                learning what works for your audience.
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-300/90">
+                We&apos;re building an AI-powered social media manager that turns your footage
+                into content, publishes it natively, and learns what works — so your brand
+                shows up every day without taking over your schedule.
               </p>
             </Reveal>
 
+            <Reveal delay={200}>
+              <div className="mt-5 flex items-center gap-3 rounded-xl border border-cyan-400/20 bg-cyan-400/5 px-4 py-3">
+                <span aria-hidden="true" className="font-display text-2xl text-gradient" style={{ fontWeight: 700 }}>
+                  450+
+                </span>
+                <p className="text-sm leading-snug text-slate-300/85">
+                  publications a month across five platforms — our planned high-volume workflow.{" "}
+                  <span className="text-slate-400/70">Not current capacity.</span>
+                </p>
+              </div>
+            </Reveal>
+
             <Reveal delay={240}>
-              <div className="glass mt-8 rounded-2xl p-6 sm:p-7">
+              <div className="glass mt-6 rounded-2xl p-6 sm:p-7">
                 {signedUpEmail ? (
                   <Questionnaire email={signedUpEmail} />
                 ) : (
                   <>
                     <SignupForm onSuccess={setSignedUpEmail} idPrefix="hero" />
                     <p className="mt-4 text-center text-[12px] leading-relaxed text-slate-400/70">
-                      Parren is in development — early members shape what ships first.
+                      Parren is in development — early members shape what ships first.{" "}
+                      <a href="#how-it-works" className="text-cyan-300 underline underline-offset-2 hover:text-cyan-200">
+                        See how it works
+                      </a>
                     </p>
                   </>
                 )}
@@ -77,7 +92,7 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={320}>
-              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-300/80">
+              <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-300/80">
                 {["Free to join", "No spam, ever", "Unsubscribe anytime"].map((t) => (
                   <li key={t} className="flex items-center gap-2">
                     <CheckIcon />
@@ -91,25 +106,13 @@ export default function Hero() {
           {/* Product visual */}
           <Reveal delay={200} className="relative">
             <div className="animate-float-slow">
-              <DashboardMock />
+              <CommandCenter compact />
             </div>
             <p className="mt-4 text-center text-xs text-slate-500">
               Concept preview of the Parren experience — currently in development.
             </p>
           </Reveal>
         </div>
-
-        {/* audience strip */}
-        <Reveal delay={120}>
-          <div className="mt-20 border-t border-electric-400/10 pt-8 text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-slate-400">
-              Built for founders, creators &amp; personal brands
-            </p>
-            <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-300/75">
-              People who would rather run their business than run their content calendar.
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

@@ -8,16 +8,20 @@ import Reveal from "./Reveal";
 
 const perks = [
   {
-    title: "First access to the MVP",
-    body: "Be in the first wave when Parren opens — before any public launch.",
+    title: "Priority beta consideration",
+    body: "Get considered for our initial customer testing group when it opens.",
   },
   {
-    title: "Direct input on the roadmap",
-    body: "Founding members vote on what ships first. Your workflow shapes the product.",
+    title: "Founding-member opportunities",
+    body: "Hear about introductory plans or founding-member benefits before public launch.",
   },
   {
-    title: "Founding-member status",
-    body: "Early believers get recognized — and hear about pricing before anyone else.",
+    title: "Shape the platform",
+    body: "Tell us what you need automated and help influence our product priorities.",
+  },
+  {
+    title: "Early product previews",
+    body: "Receive development updates and demonstrations as Parren takes shape.",
   },
 ];
 
@@ -25,7 +29,7 @@ export default function EarlyAccess() {
   const [signedUpEmail, setSignedUpEmail] = useState<string | null>(null);
 
   return (
-    <section id="early-access" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="early-access" className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-electric-600/15 blur-[130px]"
@@ -34,17 +38,17 @@ export default function EarlyAccess() {
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-              Early access
+              Why join early
             </p>
             <h2
               className="font-display mt-4 text-3xl tracking-tight text-white sm:text-4xl"
               style={{ fontWeight: 700 }}
             >
-              Join the founders building <span className="text-gradient">with us.</span>
+              Help build the 24/7 social media manager <span className="text-gradient">you&apos;ve always wanted.</span>
             </h2>
             <p className="mt-4 max-w-lg text-[17px] leading-relaxed text-slate-300/85">
               We&apos;re opening Parren to a small group first. Join the list, tell us about your
-              workflow, and help shape the 24/7 social media manager you&apos;ve always wanted.
+              workflow, and help define your ideal content machine.
             </p>
             <ul className="mt-8 space-y-4">
               {perks.map((p) => (
@@ -64,6 +68,10 @@ export default function EarlyAccess() {
                 </li>
               ))}
             </ul>
+            <p className="mt-6 max-w-lg text-sm leading-relaxed text-slate-400/75">
+              No guaranteed beta access, no fixed pricing promises — just first access to updates
+              and real opportunities to participate.
+            </p>
           </Reveal>
 
           <Reveal delay={120}>

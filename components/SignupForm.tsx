@@ -14,10 +14,15 @@ type SignupFormProps = {
   /** called with the registered email once signup succeeds */
   onSuccess?: (email: string) => void;
   idPrefix?: string;
+  buttonLabel?: string;
 };
 
 /**
- * Early-access signup form.
+ * Email-first early-access signup.
+ *
+ * Step 1 collects only the email (+ CASL consent). Name, company and the
+ * rest are gathered in the optional post-signup Questionnaire — fewer
+ * fields up front means less friction and higher conversion.
  *
  * Security layers:
  * - Honeypot field ("website") — bots fill it, humans never see it
@@ -25,10 +30,12 @@ type SignupFormProps = {
  *   (see app/api/early-access/route.ts)
  * - Service-account credentials live only in server env vars, never here
  */
-export default function SignupForm({ onSuccess, idPrefix = "signup" }: SignupFormProps) {
-  const [firstName, setFirstName] = useState("");
+export default function SignupForm({
+  onSuccess,
+  idPrefix = "signup",
+  buttonLabel = "Join Early Access — Free",
+}: SignupFormProps) {
   const [email, setEmail] = useState("");
-  const [company, setCompany] = useState("");
   const [consent, setConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const [attribution, setAttribution] = useState<Attribution>({});
@@ -59,8 +66,8 @@ export default function SignupForm({ onSuccess, idPrefix = "signup" }: SignupFor
     if (status === "loading") return;
     setErrorMsg("");
 
-    if (!firstName.trim() || !email.trim() || !company.trim()) {
-      setErrorMsg("Please fill in your name, email, and company or brand.");
+    if (!email.trim()) {
+      setErrorMsg("Please enter your email address.");
       setStatus("error");
       return;
     }
@@ -76,9 +83,7 @@ export default function SignupForm({ onSuccess, idPrefix = "signup" }: SignupFor
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName: firstName.trim(),
           email: email.trim(),
-          company: company.trim(),
           consent: true,
           website: honeypot, // honeypot — must stay empty
           utm: attribution,
@@ -107,22 +112,6 @@ export default function SignupForm({ onSuccess, idPrefix = "signup" }: SignupFor
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-3 sm:space-y-4">
       <div>
-        <label htmlFor={fieldId("firstName")} className="sr-only">
-          First name
-        </label>
-        <input
-          id={fieldId("firstName")}
-          type="text"
-          autoComplete="given-name"
-          placeholder="First name"
-          className="field"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          maxLength={60}
-          required
-        />
-      </div>
-      <div>
         <label htmlFor={fieldId("email")} className="sr-only">
           Email
         </label>
@@ -135,22 +124,6 @@ export default function SignupForm({ onSuccess, idPrefix = "signup" }: SignupFor
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           maxLength={254}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor={fieldId("company")} className="sr-only">
-          Company or brand
-        </label>
-        <input
-          id={fieldId("company")}
-          type="text"
-          autoComplete="organization"
-          placeholder="Company / brand name"
-          className="field"
-          value={company}
-          onChange={(e) => setCompany(e.target.value)}
-          maxLength={120}
           required
         />
       </div>
@@ -196,7 +169,7 @@ export default function SignupForm({ onSuccess, idPrefix = "signup" }: SignupFor
         className="btn-primary w-full rounded-xl px-6 py-3.5 font-display text-base font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
         style={{ fontWeight: 600 }}
       >
-        {status === "loading" ? "Joining…" : "Join Early Access"}
+        {status === "loading" ? "Joining…" : buttonLabel}
       </button>
 
       <p className="text-center text-xs text-slate-400/70">
